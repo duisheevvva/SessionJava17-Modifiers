@@ -13,27 +13,51 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         User user = new User();
         Product product = new Product();
+        boolean isTrue = true;
+        boolean isAuthenticated = false;
 
-        System.out.println("""
-                       Меню
-                1.Register
-                2.Login
-                3.Add product
-                4.Get All Products
-                5.Exit       
-                """);
-        System.out.println("Choose method: ");
-        int choice = scanner.nextInt();
-        switch (choice){
-            case 1: user.register(); break;
-            case 2: user.login();break;
-            case 3: product.createProduct(user); break;
-            case 4: user.getAllProducts(); break;
-            default:
-                System.out.println("Incorrect choice");
+        while (isTrue) {
+            System.out.println("""
+                           Меню
+                    1.Register
+                    2.Login
+                    3.Add product
+                    4.Get All Products
+                    5.Exit       
+                    """);
+            System.out.println("Choose method: ");
+            int choice = scanner.nextInt();
+            switch (choice) {
+                case 1:
+                    user.register();
+                    break;
+                case 2:
+                    if (user.login()){ // true // false
+                        isAuthenticated = true;
+                    }else {
+                        System.out.println("Пройдите через логин!!");
+                    }
+                    break;
+                case 3:
+                    if (isAuthenticated){
+                        System.out.println(isAuthenticated);
+                        product.createProduct(user);
+                    }else {
+                        System.out.println("Вы не прошли антентификацию!");
+                    }
+                    break;
+                case 4:
+                    if (isAuthenticated){
+                        System.out.println(Arrays.toString(user.getAllProducts()));
+                    }else {
+                        System.out.println("Вы не прошли антентификацию!");
+                    }
+                    break;
+                case 5: isTrue= false; break;
+                default:
+                    System.out.println("Incorrect choice");
+
+            }
         }
-
-
-
     }
 }

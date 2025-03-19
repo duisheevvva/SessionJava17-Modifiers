@@ -96,8 +96,14 @@ public class Product {
             System.out.println("Write memory: ");
             electronics.setMemory(scannerForInt.nextInt());
             user.addProductToArray(electronics);
-        }else {
-            return "Prodoljenie sleduet.....";
+        } else if (type == 2) {
+            Book book = new Book();
+            System.out.println("Id ber:");
+            book.setId(scannerForInt.nextInt());
+            System.out.println("Author name:");
+            book.setAuthor(scannerForString.nextLine());
+            user.addProductToArray(book);
+
         }
         return "";
     }

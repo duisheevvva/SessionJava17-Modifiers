@@ -102,7 +102,7 @@ public class User {
         System.out.println(Arrays.toString(users));
     }
 //    -Login
-    public void login(){
+    public boolean login(){
         System.out.println("Write email: ");
         String email = scannerForString.nextLine();
         System.out.println("Write password: ");
@@ -110,11 +110,10 @@ public class User {
 
         for (int i = 0; i < count; i++) {
             if (users[i].getEmail().equals(email) && users[i].getPassword().equals(password)){
-                System.out.println("Successfully login!!");
-            }else {
-                System.out.println("User with email: " + email + " not found");
+               return true;
             }
         }
+        return false;
     }
 
     // add product
