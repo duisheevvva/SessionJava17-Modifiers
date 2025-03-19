@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.Locale;
 import java.util.Scanner;
 
 public class Product {
@@ -81,7 +80,7 @@ public class Product {
     }
     Scanner scannerForInt = new Scanner(System.in);
     Scanner scannerForString = new Scanner(System.in);
-    public String addProduct(User user){
+    public String createProduct(User user){
         System.out.println("Select type'1.Electronics':'2.Book': ");
         int type = scannerForInt.nextInt();
         if (type == 1){
@@ -96,7 +95,7 @@ public class Product {
             electronics.setNew(scannerForString.nextBoolean());
             System.out.println("Write memory: ");
             electronics.setMemory(scannerForInt.nextInt());
-            user.addProduct(electronics);
+            user.addProductToArray(electronics);
         }else {
             return "Prodoljenie sleduet.....";
         }

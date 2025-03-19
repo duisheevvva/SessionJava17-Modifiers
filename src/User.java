@@ -119,7 +119,7 @@ public class User {
 
     // add product
     int productCount =0;
-    public void addProduct(Product product){
+    public void addProductToArray(Product product){
         if (productCount < products.length){
             products[productCount++] = product;
         }else {
